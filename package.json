@@ -21,10 +21,10 @@
     "dev": "rollup --environment DEV -c -w",
     "test:unit": "karma start tests/karma.conf.js",
     "test": "npm run standard && npm run build-js:unit && npm run test:unit && npm run build",
-    "standard": "standard src/js/* tests/units/*.spec.js",
+    "standard": "standard \"src/js/*\" \"tests/units/*.spec.js\"",
     "deploy": "gh-pages -d docs",
     "docs-build": "npm run build && npm run docs-copy",
-    "docs-copy": "shx mkdir -p docs/dist/ && shx cp -r dist/css/ docs/dist/ && shx cp -r dist/js/ docs/dist/",
+    "docs-copy": "shx rm -rf docs/dist/ && shx mkdir -p docs/dist/ && shx cp -r dist/css/ docs/dist/ && shx cp -r dist/js/ docs/dist/",
     "docs-serve": "http-server docs/ -c-1 -o",
     "changelog": "standard-version",
     "coveralls": "shx cat tests/dist/coverage/lcov.info | coveralls"
