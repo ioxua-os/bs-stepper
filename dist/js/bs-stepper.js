@@ -298,7 +298,10 @@
       this._element = element;
       this._currentIndex = 0;
       this._stepsContents = [];
-      this.options = _extends({}, DEFAULT_OPTIONS, _options);
+      this.options = _extends({}, DEFAULT_OPTIONS, _options); // FIXME(ioxua-os): Find a better alternative to deep copy objects
+
+      this.options.selectors = _extends({}, DEFAULT_OPTIONS.selectors, this.options.selectors);
+      this.options.classNames = _extends({}, DEFAULT_OPTIONS.classNames, this.options.classNames);
 
       if (this.options.linear) {
         this._element.classList.add(this.options.classNames.linear);
